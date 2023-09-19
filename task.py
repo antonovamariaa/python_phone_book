@@ -33,7 +33,7 @@ def New_Contact (list_name = "phones.txt"):
         number = input("введите номер телефона: ")
      
         telephone_list.write(surname + ' ' + name + ' ' + patronym + ',    ' + number + '\n')
-        print("\n"+"успешно добавлено, возращаемся в меню.")
+        print("\n"+"успешно добавлено." + "\n" +"возращаемся в меню.")
 
 
 
@@ -56,10 +56,9 @@ def Search_Contact(list_name = "phones.txt"):
                 found = 1 
 
         if found == 1: 
-            print("ура. возращаемся в меню.")           
+            print("ура. "+ "\n" +"возращаемся в меню.")           
         else: 
-            print("такого контакта не существует")
-            print("о нет. возращаемся в меню.")
+            print("о нет. такого контакта не существует."+ "\n" +"возращаемся в меню.")
 
 
 
@@ -81,17 +80,17 @@ def Delete_Contact(list_name = "phones.txt"):
             if (surname == splitted[0] and name == splitted[1] and (patronym in splitted[2])):
                 counter += 1
     if counter == 0:
-        print("таких не найдено. возращаемся в меню.")
+        print("таких не найдено."+ "\n" +"возращаемся в меню.")
     elif counter == 1:
         with open(list_name, 'w', encoding='UTF-8') as telephone_list:
             for line in lines:
                 splitted = line.split()
                 if (surname == splitted[0] and name == splitted[1] and (patronym in splitted[2])):
-                    print("успешно удалено" + "\n" "ура. возращаемся в меню." + "\n")
+                    print("успешно удалено. ура."+ "\n" +"возращаемся в меню." + "\n")
                 else:
                     telephone_list.write(line)          
     else:
-            print("о нет. целых " , counter , " людей с одинаковыми именем и фамилией. мы не знаем, что делать. возращаемся в меню."+ "\n")
+            print("\n" +"о нет. их целых " , counter , ". мы не знаем, что делать." + "\n" +"возращаемся в меню."+ "\n")
             
 
 
@@ -110,7 +109,7 @@ def Change_Contact(list_name = "phones.txt"):
             if (surname == splitted[0] and name == splitted[1]):
                 counter += 1
     if counter == 0:
-        print("таких не найдено. возращаемся в меню.")
+        print("таких не найдено."+ "\n" +"возращаемся в меню."+ "\n")
     elif counter == 1:
         with open(list_name, 'w', encoding='UTF-8') as telephone_list:
             for line in lines:
@@ -125,11 +124,11 @@ def Change_Contact(list_name = "phones.txt"):
                     new_number = input("введите новый номер: ")
                     line = (new_surname + ' ' + new_name + ' ' + new_patronym + ',    ' + new_number + '\n')
                     telephone_list.write(line)
-                    print("\n" + "успешно изменено" + "\n" "ура. возращаемся в меню." + "\n")
+                    print("\n" + "успешно изменено. ура." + "\n" "возращаемся в меню." + "\n")
                 else:
                     telephone_list.write(line)
     else:
-        print("о нет. целых " , counter , " людей с одинаковыми именем и фамилией. мы не знаем, что делать. возращаемся в меню."+ "\n")
+        print("\n" +"о нет. их целых " , counter , ". мы не знаем, что делать." + "\n" +"возращаемся в меню."+ "\n")
 
         
 
